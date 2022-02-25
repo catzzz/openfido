@@ -1,18 +1,15 @@
-name: Test And Build
+name: master
 
 on:
+  push:
+    branches: [ master ]
   pull_request:
+    branches: [ master ]
   
 jobs:
-  Test_and_Lint:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Test and Lint
-      - run: echo "Test and Lint"
-
-  Validate_Terraform:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Validate Terraform
-      - run: echo "Validate Terraform"
-  
+  steps:
+    - uses: actions/checkout@v2
+    - name: Test and Lint
+      run: echo "Test and Lint"
