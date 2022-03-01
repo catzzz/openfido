@@ -52,4 +52,4 @@ variable "bastion_key_name" {
   default     = "openfido-dev-bastion"
 }
 
-
+data "aws_availability_zones" "available" {}

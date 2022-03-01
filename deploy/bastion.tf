@@ -44,7 +44,8 @@ resource "aws_instance" "bastion" {
   # iam role 
   iam_instance_profile = aws_iam_instance_profile.bastion.name
   # assign to public subnet
-  subnet_id = aws_subnet.public_a.id
+  # subnet_id = aws_subnet.public_a.id
+  subnet_id = "${element(module.vpc.public_subnets, 0)}"
   # add ssh key to acess
   key_name = var.bastion_key_name
 
@@ -69,7 +70,8 @@ resource "aws_instance" "bastion" {
 resource "aws_security_group" "bastion" {
   description = "Control bastion inbound and outbound access"
   name        = "${local.prefix}-bastion"
-  vpc_id      = aws_vpc.main.id
+  # vpc_id      = aws_vpc.main.id
+  vpc_id = module.vpc.vpc_id
 
   ingress {
     protocol    = "tcp"
@@ -100,8 +102,10 @@ resource "aws_security_group" "bastion" {
     to_port   = 5432
     protocol  = "tcp"
     cidr_blocks = [
-      aws_subnet.private_a.cidr_block,
-      aws_subnet.private_b.cidr_block,
+      # aws_subnet.private_a.cidr_block,
+      # aws_subnet.private_b.cidr_block,
+      "${element(module.vpc.private_subnets, 0)}",
+      "${element(module.vpc.private_subnets, 1)}"
     ]
   }
 
