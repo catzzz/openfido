@@ -44,9 +44,9 @@ module "ecs" {
 
   task_role_enable = true
   task_role_policy = [{
-    sid       = "fullS3"
-    effect    = "Allow"
-    actions   = ["s3:*"]
+    sid     = "fullS3"
+    effect  = "Allow"
+    actions = ["s3:*"]
     resources = [
       var.s3_blob_arn,
       "${var.s3_blob_arn}/*"
