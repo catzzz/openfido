@@ -3,6 +3,18 @@ provider "aws" {
 }
 
 
+
+module "vpc" {
+  source      = "./modules/vpc"
+  environment = terraform.workspace
+  client      = var.client
+
+  aws_tags = merge(
+    local.common_tags,
+    tomap({ Name = "${local.prefix}-bastion" })
+  )
+}
+
 locals {
   prefix = "${var.prefix}-${terraform.workspace}"
   common_tags = {
@@ -13,4 +25,5 @@ locals {
   }
 }
 
-data "aws_region" "current" {}
+
+

@@ -9,3 +9,7 @@ variable "project" {
 variable "contact" {
   default = "jimmyleu@slac.stanford.edu"
 }
+
+variable "client" {
+  default = "openfido"
+}
