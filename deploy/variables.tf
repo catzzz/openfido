@@ -57,3 +57,37 @@ variable "db_class" {
 
 
 data "aws_availability_zones" "available" {}
+
+
+
+
+// Domain Certificate ARN
+# variable "front_subdomain" {
+#   type = map(object({
+#     zone_id   = string
+#     subdomain = string
+#     acm_arn   = string
+#   }))
+# }
+
+// ECS 
+variable "ecr_base_url" {
+  description = "ecr base url"
+  default     = "390427513171.dkr.ecr.us-east-1.amazonaws.com/"
+}
+
+# variable "ecs_port" {
+#   description = "ecr port"
+# }
+variable "image_tag" {
+  description = "image tag "
+  default     = "master"
+}
+# variable "ecs_health_check_path" {
+#   description = "health check path"
+
+# }
+
+# variable "cf_domain" {
+#   default = "https://${var.front_subdomain[local.env].subdomain}"
+# } 

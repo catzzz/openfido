@@ -25,4 +25,3 @@ output "vpc_db_subnets" {
 output "vpc_db_subnet_group" {
   value = module.vpc.database_subnet_group
 }
-
