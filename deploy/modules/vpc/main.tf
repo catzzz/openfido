@@ -22,5 +22,5 @@ module "vpc" {
   // DB Subnet options
   create_database_subnet_route_table = true
 
-  tags = var.aws_tags
+  tags = var.common_tags
 }

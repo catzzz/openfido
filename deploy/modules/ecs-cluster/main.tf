@@ -3,7 +3,7 @@ resource "aws_ecs_cluster" "main" {
 
   name = "${var.prefix}-${var.environment}-ecs-cluster"
 
-  tags = var.aws_tags
+  tags = var.common_tags
 }
 
  
@@ -28,5 +28,5 @@ resource "aws_iam_role" "app_iam_role" {
   name               = "${var.prefix}-api-task"
   assume_role_policy = file("${path.module}/templates/assume-role-policy.json")
 
-  tags = var.aws_tags
+  tags = var.common_tags
 }

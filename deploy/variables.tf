@@ -91,3 +91,17 @@ variable "image_tag" {
 # variable "cf_domain" {
 #   default = "https://${var.front_subdomain[local.env].subdomain}"
 # } 
+variable "sendgrid_api_key" {
+  type = string
+}
+variable "sendgrid_password_rest_template_id" {
+  type = string
+}
+
+variable "sendgrid_organization_invitation_template_id" {
+  type = string
+}
+
+variable "s3_blob_name" {
+  type = string
+}

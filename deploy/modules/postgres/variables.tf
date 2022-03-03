@@ -2,7 +2,7 @@
 
 variable "vpc_db_subnets"  { type = list(string)}
 variable "vpc_id" {type = string}
-variable "aws_tags" { type = map(string) }
+variable "common_tags" { type = map(string) }
 variable "prefix" {type = string}
 variable "environment" {type = string}
 variable "db_user" {
@@ -36,3 +36,4 @@ variable "db_class" {
 variable "security_group_bastion_id" {
   type = string
 }
+

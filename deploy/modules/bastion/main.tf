@@ -16,7 +16,7 @@ resource "aws_iam_role" "bastion" {
   name               = "${var.prefix}-bastion"
   assume_role_policy = file("${path.module}/instance-profile-policy.json")
   
-  tags = var.aws_tags
+  tags = var.common_tags
 }
 
 resource "aws_iam_role_policy_attachment" "bastion_attach_policy" {
@@ -55,7 +55,7 @@ resource "aws_instance" "bastion" {
   ]
 
 
-  tags = var.aws_tags
+  tags = var.common_tags
 
 
 }
@@ -110,6 +110,6 @@ resource "aws_security_group" "bastion" {
     ]
   }
 
-  tags = var.aws_tags
+  tags = var.common_tags
 }
 

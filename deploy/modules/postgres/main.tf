@@ -9,7 +9,7 @@ resource "aws_db_subnet_group" "main" {
   ]
 
   
-  tags = var.aws_tags
+  tags = var.common_tags
 }
 
 resource "aws_security_group" "rds" {
@@ -31,7 +31,7 @@ resource "aws_security_group" "rds" {
 
   }
 
-  tags = var.aws_tags
+  tags = var.common_tags
 }
 
 resource "aws_db_instance" "main" {
@@ -50,5 +50,5 @@ resource "aws_db_instance" "main" {
   skip_final_snapshot     = true
   vpc_security_group_ids  = [aws_security_group.rds.id]
 
-  tags = var.aws_tags
+  tags = var.common_tags
 }

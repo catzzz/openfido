@@ -13,3 +13,11 @@ output "ecs_cluster_name" {
 # output "auth_domain" {
 #   value = "https://${var.auth_subdomain[local.env].subdomain}"
 # }
+
+output "aws_iam_role_task_execution_role_arn" {
+  value = aws_iam_role.task_execution_role.arn
+}
+
+output "aws_iam_role_app_iam_role_arn"{
+  value = aws_iam_role.app_iam_role.arn
+}

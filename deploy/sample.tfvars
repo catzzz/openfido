@@ -1,2 +1,6 @@
-db_user     = "openfido"
-db_password = "changeme"
+db_user                                      = "openfido"
+db_password                                  = "changeme"
+sendgrid_api_key                             = "xx"
+sendgrid_password_rest_template_id           = "xx"
+sendgrid_organization_invitation_template_id = "xx"
+s3_blob_name = "openfido-dev-blob"
